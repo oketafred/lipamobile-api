@@ -44,6 +44,15 @@ class WalletController extends Controller
         return response()->json(['message' => $wallet_details]);
     }
 
+    public function showBalance($phoneNumber)
+    {
+        $wallet = Wallet::where('phone_number', $phoneNumber)->first();
+        return response()->json([
+            'message'      => number_format($wallet->total_amount, 2),
+            'currencyCode' => $wallet->currency,
+        ]);
+    }
+
     /**
      * Wallet Number Generator
      *

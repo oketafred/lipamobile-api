@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::post('wallet/create', 'WalletController@create');
 Route::get('wallet/{phoneNumber}', 'WalletController@show');
+
+Route::get('/wallet/balance/{phoneNumber}', 'WalletController@showBalance');
