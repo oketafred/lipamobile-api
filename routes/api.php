@@ -18,5 +18,4 @@ Route::get('/', function () {
 });
 
 Route::post('wallet/create', 'WalletController@create');
-
-// Route::get('/users', 'HomeController@index');
+Route::get('wallet/{phoneNumber}', 'WalletController@show');

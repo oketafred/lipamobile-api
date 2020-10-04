@@ -26,6 +26,12 @@ class WalletController extends Controller
         ]);
     }
 
+    public function show($phoneNumber)
+    {
+        $wallet_details = Wallet::where('phone_number', $phoneNumber)->get();
+        return response()->json(['message' => $wallet_details]);
+    }
+
     /**
      * Wallet Number Generator
      *
