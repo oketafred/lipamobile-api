@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class WalletController extends Controller
 {
+    /**
+     * Create a new Wallet
+     *
+     * @param Request $request
+     * @return void
+     */
     public function create(Request $request)
     {
         $this->validate($request, [
@@ -26,6 +32,12 @@ class WalletController extends Controller
         ]);
     }
 
+    /**
+     * Show Wallet Details
+     *
+     * @param String $phoneNumber
+     * @return void
+     */
     public function show($phoneNumber)
     {
         $wallet_details = Wallet::where('phone_number', $phoneNumber)->get();
