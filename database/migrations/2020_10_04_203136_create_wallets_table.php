@@ -16,10 +16,10 @@ class CreateWalletsTable extends Migration
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
             $table->string('walletNo');
-            $table->string('currency');
-            $table->string('country');
+            $table->string('currency')->default('UGX');
+            $table->string('country')->default('Uganda');
             $table->string('phone_number');
-            $table->string('total_amount');
+            $table->double('total_amount')->unsigned()->default(0);
             $table->timestamps();
         });
     }

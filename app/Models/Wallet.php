@@ -9,11 +9,19 @@ class Wallet extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'walletNo',
+        'currency',
+        'country',
+        'phone_number',
+        'total_amount',
+    ];
+
     /**
      * Wallet has many transactions
      */
     public function transactions()
     {
-        return $this->hasMany('App\Models\Transaction');
+        return $this->hasMany('App\Models\Transaction', 'walletNo');
     }
 }

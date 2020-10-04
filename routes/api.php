@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return response()->json(['message' => 'Lipa Mobile API']);
 });
+
+Route::post('wallet/create', 'WalletController@create');
+
+// Route::get('/users', 'HomeController@index');
