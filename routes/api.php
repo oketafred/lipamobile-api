@@ -29,7 +29,7 @@ Route::post('/wallet/depositMoney', 'WalletController@depositMoneyToWallet');
 Route::post('/wallet/sendMoney', 'WalletController@sendMoneyToPhoneNumber');
 
 // GetTransactionStatus
-Route::get('/getTransactionStatus/{referenceNumber}', 'TransactionController@getTransactionStatus');
+Route::get('/getTransactionStatus/{transactionId}', 'TransactionController@getTransactionStatus');
 
 // List of Transaction using phoneNumber
 Route::get('/getAllTransactions/{phoneNumber}', 'TransactionController@getAllTransactions');
