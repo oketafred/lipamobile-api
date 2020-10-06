@@ -13,12 +13,12 @@ class TransactionController extends Controller
         if (!$transaction) {
             return response()->json([
                 'errors' => 'No Transaction found with the provided Reference Number',
-            ]);
+            ], 422);
         }
 
         return response()->json([
             'message' => $transaction,
-        ]);
+        ], 200);
     }
 
     public function getAllTransactions($phoneNumber)
@@ -27,11 +27,11 @@ class TransactionController extends Controller
         if (!$wallet) {
             return response()->json([
                 'errors' => 'Transaction records found with the provided Phone Number',
-            ]);
+            ], 422);
         }
         $transactions = Transaction::where('walletNo', $wallet->walletNo)->get();
         return response()->json([
             'message' => $transactions,
-        ]);
+        ], 200);
     }
 }
