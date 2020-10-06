@@ -19,7 +19,8 @@ class CreateTransactionsTable extends Migration
             $table->string('transaction_type');
             $table->string('transaction_status');
             $table->string('reference_number');
-            $table->string('amount');
+            $table->integer('amount');
+            $table->string('reason');
             $table->timestamps();
         });
     }
