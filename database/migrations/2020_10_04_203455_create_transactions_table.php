@@ -18,7 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->string('walletNo');
             $table->string('transaction_type');
             $table->string('transaction_status');
-            $table->string('reference_number');
+            $table->string('transaction_id');
             $table->decimal('amount', 12, 2)->unsigned()->default(0.00);
             $table->string('reason');
             $table->timestamps();

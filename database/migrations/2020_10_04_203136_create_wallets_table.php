@@ -19,7 +19,7 @@ class CreateWalletsTable extends Migration
             $table->string('currency')->default('UGX');
             $table->string('country')->default('Uganda');
             $table->string('phone_number');
-            $table->decimal('total_amount', 12, 2)->unsigned()->default(0.00);
+            $table->decimal('account_balance', 12, 2)->unsigned()->default(0.00);
             $table->timestamps();
         });
     }
