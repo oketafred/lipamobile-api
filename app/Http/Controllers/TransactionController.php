@@ -7,9 +7,9 @@ use App\Models\Transaction;
 
 class TransactionController extends Controller
 {
-    public function getTransactionStatus($referenceNumber)
+    public function getTransactionStatus($transactionId)
     {
-        $transaction = Transaction::where('reference_number', $referenceNumber)->first();
+        $transaction = Transaction::where('transaction_id', $transactionId)->first();
         if (!$transaction) {
             return response()->json([
                 'errors' => 'No Transaction found with the provided Reference Number',
