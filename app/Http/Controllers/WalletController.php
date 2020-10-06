@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Wallet;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Rules\AmountValidation;
+use App\Rules\AmountMaxValidation;
 
 class WalletController extends Controller
 {
@@ -66,7 +68,8 @@ class WalletController extends Controller
     {
         $this->validate($request, [
             'walletNo'      => 'required',
-            // 'depositAmount' => 'required',
+            'depositAmount' => new AmountValidation(),
+            'depositAmount' => new AmountMaxValidation(),
         ]);
         // Store the DB
         // Sleep
@@ -112,7 +115,8 @@ class WalletController extends Controller
         $this->validate($request, [
             'walletNo'            => 'required',
             'receiverPhoneNumber' => 'required',
-            'amount'              => 'required',
+            'amount'              => new AmountValidation(),
+            'amount'              => new AmountMaxValidation(),
         ]);
         $wallet = Wallet::where('walletNo', $request->walletNo)->first();
         if (!$wallet) {
